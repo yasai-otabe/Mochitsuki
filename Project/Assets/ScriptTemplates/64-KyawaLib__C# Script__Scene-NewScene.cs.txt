@@ -1,0 +1,39 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using KyawaLib;
+
+#ROOTNAMESPACEBEGIN#
+public class #SCRIPTNAME# : SingletonMonoBehaviour<#SCRIPTNAME#>
+{
+    static public void Load()
+    {
+        SceneManager.LoadScene("#SCRIPTNAME#", LoadSceneMode.Single);
+    }
+
+    void Start()
+    {
+        StartCoroutine(CoSetup());
+    }
+
+    IEnumerator CoSetup()
+    {
+        yield return null;
+
+        StartCoroutine(CoRunning());
+    }
+
+    IEnumerator CoRunning()
+    {
+        yield return null;
+
+        StartCoroutine(CoFinal());
+    }
+
+    IEnumerator CoFinal()
+    {
+        yield return null;
+    }
+}
+#ROOTNAMESPACEEND#

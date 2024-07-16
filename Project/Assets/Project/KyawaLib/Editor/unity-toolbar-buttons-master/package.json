@@ -1,0 +1,13 @@
+{
+    "name": "com.bennykok.toolbar-buttons",
+    "displayName": "Toolbar Buttons",
+    "version": "2.2.2",
+    "unity": "2021.1",
+    "keywords": [],
+    "description": "Using visual elements and reflection for some extra pre-defined toolbar buttons",
+    "dependencies": {},
+    "author": {
+        "name": "BennyKok",
+        "url": "https://github.com/BennyKok"
+    }
+}
