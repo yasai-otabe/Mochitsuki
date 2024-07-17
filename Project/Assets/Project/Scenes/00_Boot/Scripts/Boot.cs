@@ -7,7 +7,7 @@ public class Boot : MonoBehaviour
     /// <summary>
     /// 最初に開始するシーン名
     /// </summary>
-    static string ms_firstSceneName = "SampleScene";
+    static string ms_firstSceneName = "Title";
 
 #if UNITY_EDITOR
     const int BUILD_INDEX_BOOT = 0;
@@ -34,13 +34,13 @@ public class Boot : MonoBehaviour
         switch (ms_firstSceneName)
         {
             case "Title":
-                //TitleManager.instance.LoadScene();
+                Title.LoadScene();
+                break;
+            case "Home":
+                Home.LoadScene();
                 break;
             case "Game":
-                //GameManager.instance.LoadScene();
-                break;
-            case "Result":
-                //ResultManager.instance.LoadScene();
+                Game.LoadScene();
                 break;
             default:
                 // 現在開いているシーンを開始

@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace KyawaLib
 {
     public class SingletonClass<T> where T : new()
@@ -7,8 +9,16 @@ namespace KyawaLib
         /// <summary>
         /// インスタンス取得
         /// </summary>
-        static public T instance
-            => ms_instance ??= new T();
+        static public T instance => ms_instance;
+
+        /// <summary>
+        /// インスタンス生成
+        /// </summary>
+        static public void Create()
+        {
+            if (ms_instance is null)
+                ms_instance = new();
+        }
 
         /// <summary>
         /// インスタンス削除

@@ -5,33 +5,37 @@ using UnityEngine.SceneManagement;
 using KyawaLib;
 
 #ROOTNAMESPACEBEGIN#
-public class #SCRIPTNAME# : SingletonMonoBehaviour<#SCRIPTNAME#>
+public class #SCRIPTNAME#Manager : SingletonClass<#SCRIPTNAME#Manager>
 {
-    static public void Load()
+    #SCRIPTNAME# m_gameObject = null;
+
+    public void LoadScene()
     {
-        SceneManager.LoadScene("#SCRIPTNAME#", LoadSceneMode.Single);
+        SceneLoader.instance.LoadSceneAsync("#SCRIPTNAME#", LoadSceneMode.Single,
+            onLoadedAction: () => m_gameObject = new GameObject("**#SCRIPTNAME#**").AddComponent<#SCRIPTNAME#>());
+    }
+}
+
+public class #SCRIPTNAME# : MonoBehaviour
+{
+    IEnumerator Start()
+    {
+        var corouines = new List<IEnumerator>() { CoEnter(), CoMain(), CoExit() };
+        foreach (var co in corouines)
+            yield return co;
     }
 
-    void Start()
-    {
-        StartCoroutine(CoSetup());
-    }
-
-    IEnumerator CoSetup()
+    IEnumerator CoEnter()
     {
         yield return null;
-
-        StartCoroutine(CoRunning());
     }
 
-    IEnumerator CoRunning()
+    IEnumerator CoMain()
     {
         yield return null;
-
-        StartCoroutine(CoFinal());
     }
 
-    IEnumerator CoFinal()
+    IEnumerator CoExit()
     {
         yield return null;
     }
