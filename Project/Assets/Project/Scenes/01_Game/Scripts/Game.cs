@@ -62,6 +62,10 @@ public class GameManager : SingletonClass<GameManager>
         return m_InputManager;
     }
 
+    /// <summary>
+    /// UIを取得
+    /// </summary>
+    /// <returns>GameUI</returns>
     public GameUI GetUI()
     {
         return m_ui;

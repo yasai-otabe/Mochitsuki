@@ -11,8 +11,13 @@ public class InputManager : MonoBehaviour
         STAY,
     }
 
+    // 杵の状態
     private Mochitsuki m_eMochitsuki = Mochitsuki.STAY;
 
+    /// <summary>
+    /// 杵の状態を取得
+    /// </summary>
+    /// <returns>杵の状態</returns>
     public Mochitsuki GetMochitsukiType()
     {
         return m_eMochitsuki;
@@ -23,6 +28,9 @@ public class InputManager : MonoBehaviour
         GetInput();
     }
 
+    /// <summary>
+    /// 入力を行う
+    /// </summary>
     private void GetInput()
     {
         if (GameManager.instance != null)
