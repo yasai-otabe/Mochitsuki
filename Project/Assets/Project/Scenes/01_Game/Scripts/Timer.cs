@@ -99,7 +99,6 @@ public class Timer
             return false;
         }
 
-        Assert.IsTrue(false, "タイマーは設定されていません。");
-        return false;
+        return true;
     }
 }

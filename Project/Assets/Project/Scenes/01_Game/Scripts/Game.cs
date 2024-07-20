@@ -96,17 +96,15 @@ public class Game : MonoBehaviour
 
     private void Update()
     {
+        // もちつき待機中はカウントしない
         if(m_InputManager.GetMochitsukiType() != InputManager.Mochitsuki.STAY)
         {
             if(m_Timer.UpdateTimer(Time.deltaTime))
             {
                 // 何かしらに遷移
             }
-            else
-            {
-            }
         }
 
-        GameManager.instance.GetUI().TextMeshPro.text = ((int)(m_Timer.GetRemainTime())).ToString() + "Second";
+        GameManager.instance.GetUI().TextMeshPro.text = ((int)(m_Timer.GetRemainTime())).ToString() + " s";
     }
 }
