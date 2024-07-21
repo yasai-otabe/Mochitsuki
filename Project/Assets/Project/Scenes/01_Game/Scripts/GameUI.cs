@@ -24,4 +24,8 @@ public class GameUI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI m_TextMeshProPenalty = null;
     public TextMeshProUGUI TextMeshProPenalty => m_TextMeshProPenalty;
+
+    [SerializeField]
+    private TextMeshProUGUI m_TextMeshProCount = null;
+    public TextMeshProUGUI TextMeshProCount => m_TextMeshProCount;
 }

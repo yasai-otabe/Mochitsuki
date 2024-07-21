@@ -46,16 +46,10 @@ public class InputManager : MonoBehaviour
     private void GetInput()
     {
         // ゲームマネージャーNULLチェック
-        if (GameManager.instance == null)
-        {
-            return;
-        }
+        if (GameManager.instance == null)   { return; }
 
         // 入力が許可されているか
-        if (!(GameManager.instance.IsInputEnbale()))
-        {
-            return;
-        }
+        if (!(GameManager.instance.IsInputEnbale()))    { return; }
 
         // クールタイムが終了しているか
         if (!(m_CoolTimer.UpdateTimer(Time.deltaTime)))
@@ -67,6 +61,8 @@ public class InputManager : MonoBehaviour
         // 右の杵を振る
         if (Input.GetKeyDown(KeyCode.A))
         {
+            GameManager.instance.AddInputCount();
+
             switch (m_eMochitsuki)
             {
                 case Mochitsuki.RIGHT:
@@ -98,6 +94,8 @@ public class InputManager : MonoBehaviour
         // 左の杵を振る
         if (Input.GetKeyDown(KeyCode.L))
         {
+            GameManager.instance.AddInputCount();
+
             switch (m_eMochitsuki)
             {
                 case Mochitsuki.RIGHT:

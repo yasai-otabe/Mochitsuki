@@ -13,6 +13,7 @@ public class GameManager : SingletonClass<GameManager>
     private bool m_InputEnable = false;
     private Timer m_Timer = new Timer();
     private InputManager m_InputManager = null;
+    private int m_InputCount;
 
     public GameUI UI => m_ui;
 
@@ -70,6 +71,31 @@ public class GameManager : SingletonClass<GameManager>
     {
         return m_ui;
     }
+
+    /// <summary>
+    /// 入力回数をプラス1
+    /// </summary>
+    public void AddInputCount()
+    {
+        m_InputCount++;
+    }
+
+    /// <summary>
+    /// 入力した回数を取得
+    /// </summary>
+    /// <returns>入力した回数</returns>
+    public int GetInputCount()
+    {
+        return m_InputCount;
+    }
+
+    /// <summary>
+    /// 入力した回数をリセット
+    /// </summary>
+    public void ResetInputCount()
+    {
+        m_InputCount = 0;
+    }
 }
 
 public class Game : MonoBehaviour
@@ -106,5 +132,6 @@ public class Game : MonoBehaviour
         }
 
         GameManager.instance.GetUI().TextMeshPro.text = ((int)(m_Timer.GetRemainTime())).ToString() + " s";
+        GameManager.instance.GetUI().TextMeshProCount.text = "Count " + GameManager.instance.GetInputCount().ToString();
     }
 }
