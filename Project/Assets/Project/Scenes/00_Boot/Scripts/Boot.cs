@@ -1,4 +1,3 @@
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -34,13 +33,16 @@ public class Boot : MonoBehaviour
         switch (ms_firstSceneName)
         {
             case "Title":
-                Title.LoadScene();
+                TitleManager.LoadScene();
                 break;
             case "Home":
-                Home.LoadScene();
+                HomeManager.LoadScene();
                 break;
             case "Game":
-                Game.LoadScene();
+                GameManager.LoadScene();
+                break;
+            case "Result":
+                ResultManager.LoadScene();
                 break;
             default:
                 // 現在開いているシーンを開始

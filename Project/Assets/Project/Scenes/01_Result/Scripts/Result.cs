@@ -5,16 +5,18 @@ using UnityEngine.SceneManagement;
 using KyawaLib;
 using UnityEngine.Events;
 
-public class TitleManager : SingletonClass<TitleManager>
+public class ResultManager : SingletonClass<ResultManager>
 {
-    Title m_gameObject = null;
-    TitleUI m_ui = null;
+    Result m_gameObject = null;
+    ResultUI m_ui = null;
+    int m_counts = 0;
 
-    public TitleUI UI => m_ui;
+    public ResultUI UI => m_ui;
+    public int Counts { set => m_counts = value; }
 
-    public static void LoadScene(UnityAction<TitleManager> loadedAction = null)
+    public static void LoadScene(UnityAction<ResultManager> loadedAction = null)
     {
-        SceneLoader.instance.LoadSceneAsync("Title", LoadSceneMode.Single,
+        SceneLoader.instance.LoadSceneAsync("Result", LoadSceneMode.Single,
            () =>
            {
                Create();
@@ -22,20 +24,20 @@ public class TitleManager : SingletonClass<TitleManager>
            });
     }
 
-    public TitleManager()
+    public ResultManager()
     {
-        m_gameObject = new GameObject("**Title**").AddComponent<Title>();
-        m_ui = Object.FindFirstObjectByType<TitleUI>();
+        m_gameObject = new GameObject($"**Result**").AddComponent<Result>();
+        m_ui = Object.FindFirstObjectByType<ResultUI>();
 
         m_ui.homeButton.onClick.AddListener(m_gameObject.GoHome);
     }
 }
 
-public class Title : MonoBehaviour
+public class Result : MonoBehaviour
 {
     void OnDestroy()
     {
-        TitleManager.instance.Destroy();
+        ResultManager.instance.Destroy();
     }
 
     IEnumerator Start()

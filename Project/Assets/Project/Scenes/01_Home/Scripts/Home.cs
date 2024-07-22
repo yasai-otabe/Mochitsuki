@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using KyawaLib;
+using UnityEngine.Events;
 
 public class HomeManager : SingletonClass<HomeManager>
 {
@@ -10,6 +11,16 @@ public class HomeManager : SingletonClass<HomeManager>
     HomeUI m_ui = null;
 
     public HomeUI UI => m_ui;
+
+    public static void LoadScene(UnityAction<HomeManager> loadedAction = null)
+    {
+        SceneLoader.instance.LoadSceneAsync("Result", LoadSceneMode.Single,
+           () =>
+           {
+               Create();
+               loadedAction?.Invoke(instance);
+           });
+    }
 
     public HomeManager()
     {
@@ -23,11 +34,6 @@ public class HomeManager : SingletonClass<HomeManager>
 
 public class Home : MonoBehaviour
 {
-    public static void LoadScene()
-    {
-        SceneLoader.instance.LoadSceneAsync("Home", LoadSceneMode.Single, HomeManager.Create);
-    }
-
     void OnDestroy()
     {
         HomeManager.instance.Destroy();
@@ -44,7 +50,7 @@ public class Home : MonoBehaviour
         IEnumerator CoGoGame()
         {
             yield return Fader.instance.CoFadeOut(1f);
-            Game.LoadScene();
+            GameManager.LoadScene();
         }
     }
 
@@ -54,7 +60,7 @@ public class Home : MonoBehaviour
         IEnumerator CoGoTitle()
         {
             yield return Fader.instance.CoFadeOut(1f);
-            Title.LoadScene();
+            TitleManager.LoadScene();
         }
     }
 }
