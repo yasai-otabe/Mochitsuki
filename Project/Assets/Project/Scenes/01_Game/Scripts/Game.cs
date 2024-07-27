@@ -151,9 +151,11 @@ public class Game : MonoBehaviour
             yield return new WaitUntil(() => GameStartEndManager.instance.UI.onFinishAnimation);
 
             yield return Fader.instance.CoFadeOut(1f);
+
+            var inputCount = GameManager.instance.GetInputCount();
             ResultManager.LoadScene(_ =>
             {
-                _.Counts = GameManager.instance.GetInputCount();
+                _.Counts = inputCount;
             });
         }
     }

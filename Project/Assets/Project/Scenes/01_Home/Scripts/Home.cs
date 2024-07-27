@@ -14,7 +14,7 @@ public class HomeManager : SingletonClass<HomeManager>
 
     public static void LoadScene(UnityAction<HomeManager> loadedAction = null)
     {
-        SceneLoader.instance.LoadSceneAsync("Result", LoadSceneMode.Single,
+        SceneLoader.instance.LoadSceneAsync("Home", LoadSceneMode.Single,
            () =>
            {
                Create();

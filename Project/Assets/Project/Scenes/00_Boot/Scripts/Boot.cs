@@ -66,6 +66,6 @@ public class Boot : MonoBehaviour
     /// </summary>
     void Initialize()
     {
-
+        PlayerSaveData.LoadAll();
     }
 }

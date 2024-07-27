@@ -16,7 +16,7 @@ public class Option : MonoBehaviour
 
     public void Show()
     {
-        gameObject.SetActive(transform);
+        gameObject.SetActive(true);
     }
 
     public void Hide()
