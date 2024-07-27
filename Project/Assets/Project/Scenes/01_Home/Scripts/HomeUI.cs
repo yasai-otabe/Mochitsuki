@@ -19,4 +19,8 @@ public class HomeUI : MonoBehaviour
 
     public void SetCraftsManLvName(string name)
         => m_craftsManLv.text = name;
+
+    [SerializeField]
+    PlateBubble m_plateBubble = null;
+    public PlateBubble plateBubble => m_plateBubble;
 }

@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &548205634564655758
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3265420214473653308, guid: 328e8ca051cc84221bb2b4f47c8955cd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1c2338e789bfc4a299799d3320bda67f, type: 3}
+    - target: {fileID: 3641561759967031483, guid: 328e8ca051cc84221bb2b4f47c8955cd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641561759967031483, guid: 328e8ca051cc84221bb2b4f47c8955cd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641561759967031483, guid: 328e8ca051cc84221bb2b4f47c8955cd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641561759967031483, guid: 328e8ca051cc84221bb2b4f47c8955cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641561759967031483, guid: 328e8ca051cc84221bb2b4f47c8955cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641561759967031483, guid: 328e8ca051cc84221bb2b4f47c8955cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821667115108598148, guid: 328e8ca051cc84221bb2b4f47c8955cd, type: 3}
+      propertyPath: m_id
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958053567556715961, guid: 328e8ca051cc84221bb2b4f47c8955cd, type: 3}
+      propertyPath: m_Name
+      value: obj_mochi_ichigo_showcase
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882760772187099347, guid: 328e8ca051cc84221bb2b4f47c8955cd, type: 3}
+      propertyPath: m_Name
+      value: ShowcaseMochi_008
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 328e8ca051cc84221bb2b4f47c8955cd, type: 3}

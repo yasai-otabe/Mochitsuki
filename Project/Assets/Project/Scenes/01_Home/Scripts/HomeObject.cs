@@ -16,4 +16,30 @@ public class HomeObject : MonoBehaviour
         KyDebug.AssertIsNotNull(mochi);
         return mochi;
     }
+
+    void FixedUpdate()
+    {
+        var plateBubble = HomeManager.instance?.UI?.plateBubble;
+        if (plateBubble == null)
+            return;
+
+        var camera = Camera.main;
+        var ray = camera.ScreenPointToRay(Input.mousePosition);
+        var hit = Physics2D.Raycast(ray.origin, ray.direction);
+        if (hit.collider)
+        {
+            var parent = hit.collider.transform.parent;
+            if (parent.TryGetComponent<ShowcaseMochi>(out var showcaseMochi))
+            {
+                var mochiData = DataManafer.instance.mochiData.GetDataFromID(showcaseMochi.ID);
+                var range = mochiData.range;
+                var hint = (range.x == range.y) ? $"{range.x}回" : $"{range.x}〜{range.y}回";
+                var screenPos = camera.WorldToScreenPoint(hit.collider.transform.position);
+                plateBubble.Show(mochiData.name, hint, screenPos);
+                return;
+            }
+        }
+
+        plateBubble.Hide();
+    }
 }
