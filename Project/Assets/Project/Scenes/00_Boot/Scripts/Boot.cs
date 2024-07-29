@@ -44,6 +44,9 @@ public class Boot : MonoBehaviour
             case "Result":
                 ResultManager.LoadScene();
                 break;
+            case "CraftsManLvUp":
+                CraftsManLvUpManager.LoadScene();
+                break;
             default:
                 // 現在開いているシーンを開始
                 SceneManager.LoadScene(ms_firstSceneName);

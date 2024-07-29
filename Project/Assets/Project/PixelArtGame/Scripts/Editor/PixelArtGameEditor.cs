@@ -60,7 +60,7 @@ public class PixelArtGameEditor
     [MenuItem("Assets/Create/PixelArtGame/Scene", false, 0)]
     private static void CreatePixelArtGameScene()
     {
-        const string TEMPLATE_SCENE_PATH = "Assets/Project/PixelArtGame/PixelArtGameScene.scenetemplate"; // 変更必要
+        const string TEMPLATE_SCENE_PATH = "Assets/Project/PixelArtGame/SceneTemplates/PixelArtGameScene.scenetemplate"; // 変更必要
 
         var selectionPath = string.Empty;
         foreach (Object obj in Selection.GetFiltered(typeof(DefaultAsset), SelectionMode.DeepAssets))

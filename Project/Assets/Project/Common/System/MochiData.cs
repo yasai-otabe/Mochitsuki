@@ -34,16 +34,17 @@ public class MochiData : ScriptableObject
         return m_data[index];
     }
 
-    public Data GetDataFromMochitsukiCount(int mochitsukiCount)
+    public (int ID, Data data) GetDataFromMochitsukiCount(int mochitsukiCount)
     {
-        foreach (var data in m_data)
+        for (int i = 0; i < m_data.Count; i++)
         {
+            Data data = m_data[i];
             var min = data.range.x;
             var max = data.range.y;
             if (min <= mochitsukiCount && mochitsukiCount <= max)
-                return data;
+                return new(i + 1, data);
         }
         KyDebug.AssertIsFalse(true);
-        return null;
+        return new(0, null);
     }
 }

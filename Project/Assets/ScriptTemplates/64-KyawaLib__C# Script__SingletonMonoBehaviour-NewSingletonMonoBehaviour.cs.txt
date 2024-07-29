@@ -6,7 +6,7 @@ using KyawaLib;
 #ROOTNAMESPACEBEGIN#
 public class #SCRIPTNAME# : SingletonMonoBehaviour<#SCRIPTNAME#>
 {
-    protected virtual void Init()
+    protected override void Init()
     {
         #NOTRIM#
     }

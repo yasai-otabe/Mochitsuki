@@ -3,41 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using KyawaLib;
+using UnityEngine.Events;
 
 #ROOTNAMESPACEBEGIN#
 public class #SCRIPTNAME#Manager : SingletonClass<#SCRIPTNAME#Manager>
 {
     #SCRIPTNAME# m_gameObject = null;
 
-    public void LoadScene()
+    public static void LoadScene(UnityAction<#SCRIPTNAME#Manager> loadedAction = null)
     {
         SceneLoader.instance.LoadSceneAsync("#SCRIPTNAME#", LoadSceneMode.Single,
-            onLoadedAction: () => m_gameObject = new GameObject("**#SCRIPTNAME#**").AddComponent<#SCRIPTNAME#>());
+           () =>
+           {
+               Create();
+               loadedAction?.Invoke(instance);
+           });
+    }
+
+    public #SCRIPTNAME#Manager()
+    {
+        m_gameObject = new GameObject($"**#SCRIPTNAME#**").AddComponent<#SCRIPTNAME#>();
     }
 }
 
 public class #SCRIPTNAME# : MonoBehaviour
 {
+    void OnDestroy()
+    {
+        #SCRIPTNAME#Manager.instance.Destroy();
+    }
+
     IEnumerator Start()
     {
-        var corouines = new List<IEnumerator>() { CoEnter(), CoMain(), CoExit() };
-        foreach (var co in corouines)
-            yield return co;
-    }
-
-    IEnumerator CoEnter()
-    {
-        yield return null;
-    }
-
-    IEnumerator CoMain()
-    {
-        yield return null;
-    }
-
-    IEnumerator CoExit()
-    {
-        yield return null;
+        yield break;
     }
 }
 #ROOTNAMESPACEEND#

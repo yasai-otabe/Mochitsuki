@@ -155,7 +155,7 @@ public class Game : MonoBehaviour
             var inputCount = GameManager.instance.GetInputCount();
             ResultManager.LoadScene(_ =>
             {
-                _.Counts = inputCount;
+                _.SetCount(inputCount);
             });
         }
     }
