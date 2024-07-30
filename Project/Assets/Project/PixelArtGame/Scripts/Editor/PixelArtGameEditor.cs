@@ -10,7 +10,7 @@ public class PixelArtGameEditor
     private static void InitSettings()
     {
         QualitySettings.antiAliasing = 0;
-        PlayModeWindow.SetCustomRenderingResolution(PixelArtGame.SCREEN_WIDTH, PixelArtGame.SCREEN_HEIGHT, "PxelArtGame");
+        PlayModeWindow.SetCustomRenderingResolution(1920, 1080, "Full HD");
     }
 
     [MenuItem("GameObject/PixelArtGame/Camera", false, 0)]
@@ -48,7 +48,8 @@ public class PixelArtGameEditor
         canvas.pixelPerfect = true;
 
         var scaler = obj.AddComponent<CanvasScaler>();
-        scaler.uiScaleMode = CanvasScaler.ScaleMode.ConstantPixelSize;
+        scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+        scaler.referenceResolution = new(PixelArtGame.SCREEN_WIDTH, PixelArtGame.SCREEN_HEIGHT);
         scaler.referencePixelsPerUnit = PixelArtGame.PIXELS_PER_UNIT;
 
         var raycaster = obj.AddComponent<GraphicRaycaster>();
