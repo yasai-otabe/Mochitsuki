@@ -135,6 +135,7 @@ public class Game : MonoBehaviour
         yield return Fader.instance.CoFadeIn(1f);
 
         // 開始演出
+        yield return new WaitForSeconds(1f);
         GameStartEndManager.instance.UI.Enter();
         yield return new WaitUntil(() => GameStartEndManager.instance.UI.onFinishAnimation);
 
@@ -149,6 +150,7 @@ public class Game : MonoBehaviour
             // 終了演出
             GameStartEndManager.instance.UI.Exit();
             yield return new WaitUntil(() => GameStartEndManager.instance.UI.onFinishAnimation);
+            yield return new WaitForSeconds(1f);
 
             yield return Fader.instance.CoFadeOut(1f);
 

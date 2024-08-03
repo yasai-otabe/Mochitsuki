@@ -1,13 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GameStartEndUI : MonoBehaviour
 {
     [SerializeField]
-    TextMeshProUGUI m_text = null;
+    PixelArtGameTextController m_text = null;
 
     Animator m_animator = null;
 
@@ -24,14 +20,14 @@ public class GameStartEndUI : MonoBehaviour
 
     public void Enter()
     {
-        m_text.text = "START";
+        m_text.SetText("開始");
         m_onFinishAnimation = false;
         m_animator.SetTrigger(m_animHash_Enter);
     }
 
     public void Exit()
     {
-        m_text.text = "FINISH";
+        m_text.SetText("終了");
         m_onFinishAnimation = false;
         m_animator.SetTrigger(m_animHash_Exit);
     }
