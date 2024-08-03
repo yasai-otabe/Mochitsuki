@@ -43,7 +43,7 @@ public class CraftsManLvUpManager : SingletonClass<CraftsManLvUpManager>
         PlayerSaveData.MochitsukiCount.AddAndSaveMochitsukiCount(m_counts);
 
         var craftsManName = DataManafer.instance.craftsManData.GetCraftsManName(m_totalCounts);
-        m_ui.SetCraftsManName(craftsManName);
+        m_ui.craftsManName.SetText(craftsManName);
 
         m_ui.Init(m_totalCounts, m_counts);
     }

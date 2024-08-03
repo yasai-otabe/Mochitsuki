@@ -12,24 +12,19 @@ public class CraftsManLvUpUI : MonoBehaviour
     public Button nextButton => m_nextButton;
 
     [SerializeField]
-    TextMeshProUGUI m_craftsManName = null;
+    PixelArtGameTextController m_craftsManName = null;
+    public PixelArtGameTextController craftsManName => m_craftsManName;
 
     [SerializeField]
-    TextMeshProUGUI m_totalMochitsukiCountText = null;
+    PixelArtGameTextController m_totalMochitsukiCountText = null;
     int m_totalCounts = 0;
     int m_additiveCounts = 0;
-
-    public void SetCraftsManName(string name)
-        => m_craftsManName.text = name;
-
-    public void SetTotalMochitsukiCount(int totalCounts)
-        => m_totalMochitsukiCountText.text = totalCounts.ToString();
 
     public Tweener GetCountUpTweener()
     {
         var duration = m_additiveCounts * 0.1f;
         return DOVirtual.Int(m_totalCounts, m_totalCounts + m_additiveCounts, 3f,
-            _ => SetTotalMochitsukiCount(_))
+            _ => m_totalMochitsukiCountText.SetNumber(_))
             .SetEase(Ease.InOutSine);
     }
 
@@ -37,6 +32,6 @@ public class CraftsManLvUpUI : MonoBehaviour
     {
         m_totalCounts = totalCounts;
         m_additiveCounts = additiveCounts;
-        SetTotalMochitsukiCount(m_totalCounts);
+        m_totalMochitsukiCountText.SetNumber(m_totalCounts);
     }
 }

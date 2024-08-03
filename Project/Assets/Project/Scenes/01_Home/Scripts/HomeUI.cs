@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,10 +14,8 @@ public class HomeUI : MonoBehaviour
     public Button titleButton => m_titleButton;
 
     [SerializeField]
-    TextMeshProUGUI m_craftsManLv = null;
-
-    public void SetCraftsManLvName(string name)
-        => m_craftsManLv.text = name;
+    PixelArtGameTextController m_craftsManLv = null;
+    public PixelArtGameTextController craftsManLv => m_craftsManLv;
 
     [SerializeField]
     PlateBubble m_plateBubble = null;

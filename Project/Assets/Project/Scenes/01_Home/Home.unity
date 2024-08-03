@@ -166,6 +166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 190197402}
   - component: {fileID: 190197404}
+  - component: {fileID: 190197405}
   - component: {fileID: 190197403}
   m_Layer: 5
   m_Name: CraftsManName
@@ -290,6 +291,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190197401}
   m_CullTransparentMesh: 1
+--- !u!114 &190197405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190197401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad161f54de19407e8f840413812f1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fontPreset: {fileID: 11400000, guid: cecae6c1169cf44908f3dbf7a57a436c, type: 2}
 --- !u!1 &284164621
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,8 +699,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a402018dca7524caa8b2bb6977207fb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_nameText: {fileID: 1200984864}
-  m_hintText: {fileID: 1740821594}
+  m_nameText: {fileID: 1200984866}
+  m_hintText: {fileID: 1740821596}
 --- !u!222 &605057150
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -800,6 +814,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1200984863}
   - component: {fileID: 1200984865}
+  - component: {fileID: 1200984866}
   - component: {fileID: 1200984864}
   m_Layer: 5
   m_Name: Name
@@ -924,6 +939,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200984862}
   m_CullTransparentMesh: 1
+--- !u!114 &1200984866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200984862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad161f54de19407e8f840413812f1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fontPreset: {fileID: 11400000, guid: 072c8f58c81a141a4b6c7b3929c5184e, type: 2}
 --- !u!1001 &1227415783
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1013,6 +1041,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1740821593}
   - component: {fileID: 1740821595}
+  - component: {fileID: 1740821596}
   - component: {fileID: 1740821594}
   m_Layer: 5
   m_Name: Hint
@@ -1137,6 +1166,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740821592}
   m_CullTransparentMesh: 1
+--- !u!114 &1740821596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740821592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad161f54de19407e8f840413812f1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fontPreset: {fileID: 11400000, guid: 072c8f58c81a141a4b6c7b3929c5184e, type: 2}
 --- !u!114 &1783401388 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3644212409827003146, guid: 4a25c8147b3974e72b0a9956d34505eb, type: 3}
@@ -1377,7 +1419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_gameButton: {fileID: 1872126053}
   m_titleButton: {fileID: 1978709474}
-  m_craftsManLv: {fileID: 190197403}
+  m_craftsManLv: {fileID: 190197405}
   m_plateBubble: {fileID: 605057149}
 --- !u!224 &1959490178
 RectTransform:

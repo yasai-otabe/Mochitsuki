@@ -361,8 +361,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_nextButton: {fileID: 109059268}
-  m_craftsManName: {fileID: 1513875263}
-  m_totalMochitsukiCountText: {fileID: 2032961934}
+  m_craftsManName: {fileID: 1513875265}
+  m_totalMochitsukiCountText: {fileID: 2032961937}
 --- !u!1 &737746971
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,6 +477,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1513875262}
   - component: {fileID: 1513875264}
+  - component: {fileID: 1513875265}
   - component: {fileID: 1513875263}
   m_Layer: 5
   m_Name: CraftsManName
@@ -601,6 +602,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1513875261}
   m_CullTransparentMesh: 1
+--- !u!114 &1513875265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513875261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad161f54de19407e8f840413812f1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fontPreset: {fileID: 11400000, guid: 5b31c45e890a646e5ac797def51ca2aa, type: 2}
 --- !u!1 &1622889911
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,6 +759,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2032961936}
   - component: {fileID: 2032961935}
+  - component: {fileID: 2032961937}
   - component: {fileID: 2032961934}
   m_Layer: 5
   m_Name: MochitsukiCount
@@ -869,6 +884,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 200, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2032961937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032961933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad161f54de19407e8f840413812f1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fontPreset: {fileID: 11400000, guid: 5b31c45e890a646e5ac797def51ca2aa, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

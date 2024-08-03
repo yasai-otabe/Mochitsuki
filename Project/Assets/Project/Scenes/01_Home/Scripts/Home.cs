@@ -35,7 +35,7 @@ public class HomeManager : SingletonClass<HomeManager>
         // 職人レベル
         var totalMochitsukiCount = PlayerSaveData.MochitsukiCount.value;
         var craftsManLvName = DataManafer.instance.craftsManData.GetCraftsManName(totalMochitsukiCount);
-        m_ui.SetCraftsManLvName(craftsManLvName);
+        m_ui.craftsManLv.SetText(craftsManLvName);
         // もちが解放されているかどうか
         foreach (var mochi in m_object.showcaseMochis)
         {

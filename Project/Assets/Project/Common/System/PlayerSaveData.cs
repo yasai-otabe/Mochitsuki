@@ -26,11 +26,11 @@ public static class PlayerSaveData
     /// <summary>
     /// セーブデータをセーブ
     /// </summary>
-    public static void SaveAll()
-    {
-        MochitsukiCount.Save();
-        MochiRelease.Save();
-    }
+    //public static void SaveAll()
+    //{
+    //    MochitsukiCount.Save();
+    //    MochiRelease.Save();
+    //}
     /// <summary>
     /// セーブデータをリセット
     /// </summary>
@@ -64,6 +64,15 @@ public static class PlayerSaveData
         {
             value += counts;
             Save();
+        }
+        /// <summary>
+        /// 餅つき回数を指定してセーブ
+        /// </summary>
+        /// <param name="counts"></param>
+        public static void SetAndSaveMochitsukiCount(int counts)
+        {
+            value = 0;
+            AddAndSaveMochitsukiCount(counts);
         }
 
         public static void Load()
@@ -115,6 +124,24 @@ public static class PlayerSaveData
             KyDebug.AssertIsTrue(0 < mochiID && mochiID <= 32);
             value |= 1 << (mochiID - 1);
             Save();
+        }
+        /// <summary>
+        /// もちの解放状態をセットする
+        /// </summary>
+        /// <param name="mochiID"></param>
+        /// <param name="isRelease"></param>
+        public static void SetOnRelease(int mochiID, bool isRelease)
+        {
+            KyDebug.AssertIsTrue(0 < mochiID && mochiID <= 32);
+            if (isRelease)
+            {
+                Release(mochiID);
+            }
+            else
+            {
+                value &= ~(1 << mochiID - 1);
+                Save();
+            }
         }
 
         public static void Load()

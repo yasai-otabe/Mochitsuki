@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-public class PxcelGameTextureImporter : AssetPostprocessor
+public class PixelArtGameTextureImporter : AssetPostprocessor
 {
     private void OnPreprocessTexture()
     {

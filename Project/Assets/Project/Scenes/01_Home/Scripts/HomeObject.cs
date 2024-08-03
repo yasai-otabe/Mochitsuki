@@ -35,7 +35,9 @@ public class HomeObject : MonoBehaviour
                 var mochiData = DataManafer.instance.mochiData.GetDataFromID(showcaseMochi.ID);
                 var name = showcaseMochi.isUnlocked ? mochiData.name : "？？？";
                 var range = mochiData.range;
-                var hint = (range.x == range.y) ? $"{range.x}回" : $"{range.x}〜{range.y}回";
+                var hint = $"{range.x}回";
+                if (range.x != range.y)
+                    hint += $"〜{range.y}回";
                 var viewPortPos = camera.WorldToViewportPoint(hit.collider.transform.position);
                 var canvasPos = new Vector3((int)(viewPortPos.x * PixelArtGame.SCREEN_WIDTH), (int)(viewPortPos.y * PixelArtGame.SCREEN_HEIGHT));
                 plateBubble.Show(name, hint, canvasPos);

@@ -17,15 +17,17 @@ public class MochiData : ScriptableObject
         [SerializeField, Multiline(3)]
         string _description = string.Empty;
         [SerializeField]
-        Vector2 _range = Vector2.zero;
+        Vector2Int _range = Vector2Int.zero;
         [SerializeField]
         Sprite _sprite = null;
 
         public string name => _name;
         public string description => _description;
-        public Vector2 range => _range;
+        public Vector2Int range => _range;
         public Sprite sprite => _sprite;
     }
+
+    public int DataCount => m_data.Count;
 
     public Data GetDataFromID(int mochiID)
     {

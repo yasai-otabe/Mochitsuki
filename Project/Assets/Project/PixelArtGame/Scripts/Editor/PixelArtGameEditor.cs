@@ -82,4 +82,30 @@ public class PixelArtGameEditor
         var newSceneAsset = AssetDatabase.LoadAssetAtPath<Object>(newScenePath);
         Selection.activeObject = newSceneAsset;
     }
+
+    [MenuItem("PixelArtGameTool/選択中のGameObjectの座標調整 &a")]
+    private static void AdjustPosition()
+    {
+        var gameObject = Selection.activeGameObject;
+        if (gameObject == null)
+            return;
+
+        if (gameObject.layer == 5) // UI
+        {
+            var rectTransform = gameObject.GetComponent<RectTransform>();
+            var position = rectTransform.anchoredPosition;
+            var posX = (int)position.x;
+            var posY = (int)position.y;
+            rectTransform.anchoredPosition = new(posX, posY);
+        }
+        else
+        {
+            var adjust = 1f / PixelArtGame.PIXELS_PER_UNIT;
+            var position = gameObject.transform.position;
+            var posX = position.x - position.x % adjust;
+            var posY = position.y - position.y % adjust;
+            var posZ = position.z - position.z % adjust;
+            gameObject.transform.position = new(posX, posY, posZ);
+        }
+    }
 }

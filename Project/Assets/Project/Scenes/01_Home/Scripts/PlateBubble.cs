@@ -1,13 +1,12 @@
-using TMPro;
 using UnityEngine;
 
 public class PlateBubble : MonoBehaviour
 {
     [SerializeField]
-    TextMeshProUGUI m_nameText = null;
+    PixelArtGameTextController m_nameText = null;
 
     [SerializeField]
-    TextMeshProUGUI m_hintText = null;
+    PixelArtGameTextController m_hintText = null;
 
     RectTransform rectTransform = null;
 
@@ -21,8 +20,8 @@ public class PlateBubble : MonoBehaviour
     {
         if (!gameObject.activeSelf)
         {
-            m_nameText.text = name;
-            m_hintText.text = hint;
+            m_nameText.SetText(name);
+            m_hintText.SetText(hint);
             rectTransform.anchoredPosition = position;
             gameObject.SetActive(true);
         }
