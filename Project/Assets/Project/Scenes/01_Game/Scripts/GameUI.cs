@@ -14,18 +14,18 @@ public class GameUI : MonoBehaviour
     public TextMeshProUGUI TextMeshProTutorial => m_TextMeshProTutorial;
 
     [SerializeField]
-    private TextMeshProUGUI m_TextMeshProA = null;
-    public TextMeshProUGUI TextMeshProA => m_TextMeshProA;
-
-    [SerializeField]
-    private TextMeshProUGUI m_TextMeshProL = null;
-    public TextMeshProUGUI TextMeshProL => m_TextMeshProL;
-
-    [SerializeField]
     private TextMeshProUGUI m_TextMeshProPenalty = null;
     public TextMeshProUGUI TextMeshProPenalty => m_TextMeshProPenalty;
 
     [SerializeField]
     private TextMeshProUGUI m_TextMeshProCount = null;
     public TextMeshProUGUI TextMeshProCount => m_TextMeshProCount;
+
+    [SerializeField]
+    private SpriteRenderer m_UIGuide1P = null;
+    public SpriteRenderer UIGuide1P => m_UIGuide1P;
+
+    [SerializeField]
+    private SpriteRenderer m_UIGuide2P = null;
+    public SpriteRenderer UIGuide2P => m_UIGuide2P;
 }

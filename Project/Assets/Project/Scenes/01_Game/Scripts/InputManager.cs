@@ -17,8 +17,20 @@ public class InputManager : MonoBehaviour
     [SerializeField]
     private float m_PenaltyCoolTime;
 
+    [SerializeField]
+    private GameObject m_Kine1P;
+    private float m_1PTargetAngle = 0.0f;
+    private float m_1PCurrentAngle;
+
+    [SerializeField]
+    private GameObject m_Kine2P;
+    private float m_2PTargetAngle = 0.0f;
+    private float m_RotationSpeed = 20.0f;
+    private float m_2PCurrentAngle;
+
     // 杵の状態
     private Mochitsuki m_eMochitsuki = Mochitsuki.STAY;
+
     private Timer m_CoolTimer = null;
 
     /// <summary>
@@ -33,10 +45,17 @@ public class InputManager : MonoBehaviour
     private void Start()
     {
         m_CoolTimer = new Timer();
+        m_2PCurrentAngle = m_Kine2P.transform.position.z;
+        m_1PCurrentAngle = m_Kine1P.transform.position.z;
     }
 
     private void Update()
     {
+       
+        m_1PCurrentAngle = Mathf.LerpAngle(m_1PCurrentAngle, m_1PTargetAngle, m_RotationSpeed * Time.deltaTime);
+        m_2PCurrentAngle = Mathf.LerpAngle(m_2PCurrentAngle, m_2PTargetAngle, m_RotationSpeed * Time.deltaTime);
+        m_Kine1P.transform.rotation = Quaternion.Euler(m_Kine1P.transform.rotation.x, m_Kine1P.transform.rotation.y, m_1PCurrentAngle);
+        m_Kine2P.transform.rotation = Quaternion.Euler(m_Kine2P.transform.rotation.x, m_Kine2P.transform.rotation.y, m_2PCurrentAngle);
         GetInput();
     }
 
@@ -68,9 +87,15 @@ public class InputManager : MonoBehaviour
                 case Mochitsuki.RIGHT:
                 {
                     m_eMochitsuki = Mochitsuki.LEFT;
-                    m_CoolTimer.SetTimer(m_OperationCoolTime);
-                    GameManager.instance.GetUI().TextMeshProA.alpha = 0.0f;
-                    GameManager.instance.GetUI().TextMeshProL.alpha = 1.0f;
+                    //m_CoolTimer.SetTimer(m_OperationCoolTime);
+                    var Color1P = GameManager.instance.GetUI().UIGuide1P.color;
+                    var Color2P = GameManager.instance.GetUI().UIGuide2P.color;
+                    Color1P.a = 0.0f;
+                    Color2P.a = 1.0f;
+                    GameManager.instance.GetUI().UIGuide1P.color = Color1P;
+                    GameManager.instance.GetUI().UIGuide2P.color = Color2P;
+                    m_1PTargetAngle = -38.0f;
+                    m_2PTargetAngle = -40.0f;
                     break;
                 }
                 case Mochitsuki.LEFT:
@@ -82,10 +107,16 @@ public class InputManager : MonoBehaviour
                 case Mochitsuki.STAY:
                 {
                     m_eMochitsuki = Mochitsuki.LEFT;
-                    m_CoolTimer.SetTimer(m_OperationCoolTime);
-                    GameManager.instance.GetUI().TextMeshProA.alpha = 0.0f;
-                    GameManager.instance.GetUI().TextMeshProL.alpha = 1.0f;
+                    //m_CoolTimer.SetTimer(m_OperationCoolTime);
+                    var Color1P = GameManager.instance.GetUI().UIGuide1P.color;
+                    var Color2P = GameManager.instance.GetUI().UIGuide2P.color;
+                    Color1P.a = 0.0f;
+                    Color2P.a = 1.0f;
+                    GameManager.instance.GetUI().UIGuide1P.color = Color1P;
+                    GameManager.instance.GetUI().UIGuide2P.color = Color2P;
                     GameManager.instance.GetUI().TextMeshProTutorial.alpha = 0.0f;
+                    m_1PTargetAngle = -38.0f;
+                    m_2PTargetAngle = -40.0f;
                     break;
                 }
             }
@@ -107,18 +138,30 @@ public class InputManager : MonoBehaviour
                 case Mochitsuki.LEFT:
                 {
                     m_eMochitsuki = Mochitsuki.RIGHT;
-                    m_CoolTimer.SetTimer(m_OperationCoolTime);
-                    GameManager.instance.GetUI().TextMeshProL.alpha = 0.0f;
-                    GameManager.instance.GetUI().TextMeshProA.alpha = 1.0f;
+                    //m_CoolTimer.SetTimer(m_OperationCoolTime);
+                    var Color1P = GameManager.instance.GetUI().UIGuide1P.color;
+                    var Color2P = GameManager.instance.GetUI().UIGuide2P.color;
+                    Color1P.a = 1.0f;
+                    Color2P.a = 0.0f;
+                    GameManager.instance.GetUI().UIGuide1P.color = Color1P;
+                    GameManager.instance.GetUI().UIGuide2P.color = Color2P;
+                    m_1PTargetAngle = 40.0f;
+                    m_2PTargetAngle = 38.0f;
                     break;
                 }
                 case Mochitsuki.STAY:
                 {
                     m_eMochitsuki = Mochitsuki.RIGHT;
-                    m_CoolTimer.SetTimer(m_OperationCoolTime);
-                    GameManager.instance.GetUI().TextMeshProL.alpha = 0.0f;
-                    GameManager.instance.GetUI().TextMeshProA.alpha = 1.0f;
+                    //m_CoolTimer.SetTimer(m_OperationCoolTime);
+                    var Color1P = GameManager.instance.GetUI().UIGuide1P.color;
+                    var Color2P = GameManager.instance.GetUI().UIGuide2P.color;
+                    Color1P.a = 1.0f;
+                    Color2P.a = 0.0f;
+                    GameManager.instance.GetUI().UIGuide1P.color = Color1P;
+                    GameManager.instance.GetUI().UIGuide2P.color = Color2P;
                     GameManager.instance.GetUI().TextMeshProTutorial.alpha = 0.0f;
+                    m_1PTargetAngle = 40.0f;
+                    m_2PTargetAngle = 38.0f;
                     break;
                 }
             }
